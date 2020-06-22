@@ -1,0 +1,557 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"try",
+				"try\tTry/Except"
+			],
+			[
+				"star",
+				"start_over"
+			],
+			[
+				"Inl",
+				"InlineKeyboardButton"
+			],
+			[
+				"call",
+				"callback_data"
+			],
+			[
+				"In",
+				"InlineKeyboardButton"
+			],
+			[
+				"mes",
+				"message_id"
+			],
+			[
+				"mess",
+				"message"
+			],
+			[
+				"ed",
+				"edit_message_text"
+			],
+			[
+				"buy",
+				"buy_btc"
+			],
+			[
+				"Fir",
+				"FIRST"
+			],
+			[
+				"cal",
+				"callback_query"
+			],
+			[
+				"a",
+				"address"
+			],
+			[
+				"se",
+				"send"
+			],
+			[
+				"che",
+				"cheq_r"
+			],
+			[
+				"ch",
+				"cheq_l"
+			],
+			[
+				"com",
+				"compdr"
+			],
+			[
+				"comp",
+				"compdl"
+			],
+			[
+				"li",
+				"li\tTag"
+			],
+			[
+				"tranit",
+				"transition\tproperty"
+			],
+			[
+				"text-a",
+				"text-align\tproperty"
+			],
+			[
+				"A",
+				"Angel"
+			],
+			[
+				"r",
+				"route"
+			],
+			[
+				"Flas",
+				"FlashPay"
+			],
+			[
+				"dash",
+				"dashboard3"
+			],
+			[
+				"margin",
+				"margin-top\tproperty"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"met",
+				"meta\tTag"
+			],
+			[
+				"st",
+				"styles"
+			],
+			[
+				"sc",
+				"scripts"
+			],
+			[
+				"pay",
+				"payout_user_hash"
+			],
+			[
+				"pa",
+				"payout_user_hash"
+			],
+			[
+				"s",
+				"status"
+			],
+			[
+				"V",
+				"value"
+			],
+			[
+				"local",
+				"localhost"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"http",
+				"https"
+			],
+			[
+				"ima",
+				"image_dir"
+			],
+			[
+				"cop",
+				"Copyright"
+			],
+			[
+				"onc",
+				"onclick\tAttr"
+			],
+			[
+				"text",
+				"text"
+			],
+			[
+				"in",
+				"input_text"
+			],
+			[
+				"wr",
+				"word-wrap\tproperty"
+			],
+			[
+				"e",
+				"equation"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"fo",
+				"form\tTag"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"html",
+				"HTML: Encode Special Characters"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 201.211151123,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/datos/Programación/Projects/Equilibrium/templates/base.html",
+		"/datos/Programación/Projects/Equilibrium/index.py",
+		"/datos/Programación/Projects/Equilibrium/templates/help.html",
+		"/datos/Programación/Projects/Equilibrium/static/css/app.css",
+		"/datos/Programación/Projects/Equilibrium/static/js/script.js",
+		"/datos/Programación/Projects/Equilibrium/templates/index.html",
+		"/datos/Programación/Projects/Equilibrium/utils.py",
+		"/datos/Programación/Python/Repo/python-telegram-bot-master/examples/paymentbot.py",
+		"/datos/Programación/Python/Repo/python-telegram-bot-master/examples/conversationbot2.py",
+		"/datos/Programación/Python/Repo/python-telegram-bot-master/examples/inlinekeyboard2.py",
+		"/datos/Programación/Python/Repo/python-telegram-bot-master/examples/echobot2.py",
+		"/datos/Programación/Projects/M/tarcp.py",
+		"/usr/lib/python3.7/tarfile.py",
+		"/datos/Programación/Projects/Equilibrium/old/equation.py",
+		"/datos/Programación/Projects/MinimalNAS/minimal/minimal.py",
+		"/datos/Programación/Projects/PowerM/ready/PowerM/modules/bitcoin/bitcoin.py",
+		"/home/james/.cache/.fr-QlwBJc/python-telegram-bot-master/telegram/version.py",
+		"/home/james/.cache/.fr-7R6DUa/python-telegram-bot-master/setup.py",
+		"/home/james/.cache/.fr-8EndYc/python-telegram-bot-master/examples/inlinekeyboard2.py",
+		"/datos/Programación/Python/Repo/python-telegram-bot-master/examples/passportbot.py",
+		"/datos/Programación/Python/Repo/python-telegram-bot-master/examples/inlinebot.py",
+		"/datos/Programación/Python/Repo/python-telegram-bot-master/examples/inlinekeyboard.py",
+		"/datos/Programación/Python/Repo/python-telegram-bot-master/examples/timerbot.py",
+		"/datos/Programación/Python/Repo/EtherTokenMonitor-master/main.py",
+		"/datos/Programación/Python/Repo/python-telegram-bot-master/examples/conversationbot.py",
+		"/datos/Programación/Python/Repo/python-telegram-bot-master/examples/echobot.py",
+		"/datos/Programación/Python/Repo/EtherTokenMonitor-master/requirements.txt",
+		"/home/james/.cache/.fr-JtsUzk/pywallet-master/README.rst",
+		"/datos/Programación/Projects/PowerM/client/main.py",
+		"/datos/Programación/Projects/PowerM/ready/PowerM/powerm.py",
+		"/datos/Programación/Projects/PowerM/ready/PowerM/modules/bitcoin/__init__.py",
+		"/usr/lib64/python3.7/site-packages/telegram/chat.py",
+		"/usr/lib64/python3.7/site-packages/pyinotify.py",
+		"/datos/Programación/Python/Repo/bitcoinlib-master/docs/bitcoinlib-10-minutes.ipynb",
+		"/datos/Programación/Python/Repo/bitcoinlib-master/examples/wallets_transactions.py",
+		"/datos/Programación/Python/Repo/bitcoinlib-master/examples/transactions.py",
+		"/datos/Programación/Python/Repo/bitcoinlib-master/README.rst",
+		"/datos/Programación/Projects/B/bit-master/bit/wallet.py",
+		"/datos/Programación/Projects/B/bit-master/bit/keygen.py",
+		"/datos/Programación/Projects/B/bit-master/bit/cli.py",
+		"/datos/Programación/Projects/B/bit-master/docs/source/guide/network.rst",
+		"/datos/Programación/Projects/B/bit-master/README.rst",
+		"/datos/Programación/Projects/B/index.py",
+		"/datos/Jimmy Angel/Chemical_Equation_Balancer-master/readme.md",
+		"/usr/share/albert/org.albert.frontend.widgetboxmodel/ArcTemplate.sh",
+		"/usr/share/albert/org.albert.frontend.widgetboxmodel/ArcTemplate.qss",
+		"/usr/share/albert/org.albert.extension.python/modules/dango_emoji/__init__.py",
+		"/usr/share/albert/org.albert.extension.python/modules/pacman.py",
+		"/usr/share/albert/org.albert.extension.python/modules/README.md",
+		"/usr/share/albert/org.albert.extension.python/modules/timer/__init__.py",
+		"/usr/share/albert/org.albert.extension.python/modules/arch_wiki/__init__.py",
+		"/home/james/.local/share/keyrings/login.keyring",
+		"/home/james/.local/share/keyrings/user.keystore",
+		"/var/lib/pacman/local/archlabs-ksuperkey-0.4-3/files",
+		"/datos/Programación/Repo/autoComplete.js-master/dist/js/index.js",
+		"/datos/Programación/Repo/autoComplete.js-master/dist/js/autoComplete.js",
+		"/datos/Programación/Projects/Equilibrium/static/css/main.css",
+		"/datos/Programación/Projects/Equilibrium/static/css/autoComplete.css",
+		"/datos/Programación/Projects/Equilibrium/static/js/index.js",
+		"/datos/Programación/Projects/Equilibrium/static/db/elements.json",
+		"/datos/Programación/Repo/autoComplete.js-master/dist/index.html",
+		"/datos/Programación/Projects/Equilibrium/static/db/generic.json",
+		"/datos/Programación/Repo/m-utilities-master/spinners/_basic_spinner.scss",
+		"/datos/Programación/Repo/m-utilities-master/README.md",
+		"/datos/Programación/Repo/m-utilities-master/auto-datatables/README.md",
+		"/datos/Programación/Repo/m-utilities-master/ckeditor/README.md",
+		"/datos/Programación/Repo/autoComplete.js-master/dist/db/generic.json",
+		"/datos/Programación/Repo/autoComplete.js-master/docs/index.html",
+		"/datos/Programación/Projects/Equilibrium/templates/cover.htm",
+		"/datos/Programación/CSS/bootstrap4-offline-docs-4.3/examples/cover/cover.htm",
+		"/home/james/.cache/.fr-FIomyK/Bitcoin-Dashboard-master/index.html",
+		"/datos/Programación/Repo/Templates/2095_level/index.html",
+		"/datos/Programación/Projects/B/ColorlibHQ-AdminLTE-0e48302/index3.html",
+		"/datos/Programación/Projects/MinimalNAS/templates/index.html",
+		"/datos/Programación/Projects/MinimalNAS/templates/base.html",
+		"/datos/Programación/Projects/MinimalNAS/index.py",
+		"/datos/Programación/Projects/B/templates/dashboard.html",
+		"/datos/Programación/Projects/B/templates/base.html",
+		"/home/james/.cache/.fr-Qe2XDY/VisualCron.9.1.5/Read me.txt",
+		"/datos/Programación/Projects/B/static/dist/css/adminlte.css",
+		"/datos/Programación/Projects/B/templates/404.html",
+		"/datos/Programación/Projects/B/templates/500.html",
+		"/datos/Programación/Projects/B/templates/register.html",
+		"/datos/Programación/Projects/B/templates/login.html",
+		"/datos/Programación/Projects/B/bit-master/docs/source/guide/keys.rst",
+		"/run/media/james/LIUBAR/! Hoy 22-02-2020 [OMEGA-AM Records®]/Sección Interesantes/4- Aplicaciones para PC/Aplicaciones para Windows/««« Contraseñas »»».txt",
+		"/datos/Programación/Projects/B/ColorlibHQ-AdminLTE-0e48302/pages/examples/404.html",
+		"/datos/Programación/Python/Docs/docs of flask/docs/errorhandling.rst",
+		"/home/james/.cache/.fr-aXXRMJ/docs/errorhandling.rst",
+		"/home/james/.cache/.fr-o0wdmq/flask-base-master/app/controllers/main/__init__.py",
+		"/home/james/.cache/.fr-IW6x1r/flask-base-master/app/controllers/main/controllers.py",
+		"/datos/Programación/Projects/B/static/dist/css/adminlte.min.css",
+		"/datos/Programación/Projects/B/templates/index.py",
+		"/run/media/james/E34B-47E2/ubnfilel.txt",
+		"/run/media/james/E34B-47E2/README",
+		"/run/media/james/E34B-47E2/syslinux.cfg",
+		"/datos/Programación/Projects/B/ColorlibHQ-AdminLTE-0e48302/index.html",
+		"/datos/Películas & Series/211 [El Gran Asalto] [2018] [1080p].srt",
+		"/home/james/.cache/.fr-az89DK/md5sum",
+		"/run/media/james/SG2DISOS/BOOTISOS/README.TXT",
+		"/media/woeusb_target_1581979798_24592/grub/grubenv",
+		"/media/woeusb_target_1581979798_24592/grub/grub.cfg",
+		"/datos/GNU-Linux/WoeUSB-WoeUSB-ng-1d07b32/doc/workaround.rst",
+		"/datos/GNU-Linux/WoeUSB-WoeUSB-ng-1d07b32/doc/woeusb.rst",
+		"/datos/GNU-Linux/WoeUSB-WoeUSB-ng-1d07b32/README.md",
+		"/datos/Programación/Projects/B/concept-master/dashboard-finance.html",
+		"/datos/Programación/Projects/B/concept-master/assets/vendor/charts/morris-bundle/morrisjs.html",
+		"/datos/Programación/Projects/B/concept-master/index.html",
+		"/datos/Programación/Repo/vendors/jquery/dist/jquery.js",
+		"/datos/Programación/Repo/vendors/bootstrap/dist/js/bootstrap.bundle.min.js",
+		"/datos/Programación/Repo/vendors/bootstrap/dist/css/bootstrap.min.css",
+		"/datos/Programación/Projects/B/concept-master/assets/vendor/bootstrap/css/bootstrap.min.css",
+		"/datos/Programación/Projects/B/concept-master/assets/libs/js/dashboard-finance.js",
+		"/datos/Programación/Projects/B/concept-master/README.md",
+		"/datos/Programación/Projects/B/validate_btc_address.py",
+		"/datos/Programación/Projects/B/faucethub.py",
+		"/datos/Programación/Projects/B/settings.py",
+		"/home/james/Descargas/ColorlibHQ-AdminLTE-0e48302/plugins/datatables-keytable/js/dataTables.keyTable.js",
+		"/home/james/Descargas/ColorlibHQ-AdminLTE-0e48302/plugins/summernote/summernote.js",
+		"/datos/Programación/Repo/vendors/summernote/js/summernote-bs4.js",
+		"/home/james/Descargas/ColorlibHQ-AdminLTE-0e48302/plugins/sparklines/sparkline.js",
+		"/datos/Programación/Repo/vendors/sparkline/jquery.sparkline.js",
+		"/datos/Programación/Repo/vendors/select2/dist/js/select2.full.js",
+		"/home/james/Descargas/ColorlibHQ-AdminLTE-0e48302/plugins/select2/js/select2.full.js",
+		"/home/james/Descargas/ColorlibHQ-AdminLTE-0e48302/plugins/raphael/raphael.js",
+		"/datos/Programación/Repo/vendors/raphael/raphael.js",
+		"/datos/Programación/Repo/vendors/pdfmake/build/pdfmake.js",
+		"/home/james/Descargas/ColorlibHQ-AdminLTE-0e48302/plugins/pdfmake/pdfmake.js"
+	],
+	"find":
+	{
+		"height": 45.8167330677
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"_message",
+			"message",
+			"start_over",
+			"compdr",
+			"compdl",
+			"get_compd(",
+			"print",
+			"get_compd",
+			"solve_linear_system",
+			"compdl",
+			"extent2",
+			"selection",
+			"div",
+			"selection",
+			"#autoCom",
+			"selection",
+			"sear",
+			"food",
+			"boubou",
+			"aa",
+			"\",\n",
+			"method",
+			"imag",
+			"url_",
+			"min-height",
+			".content",
+			"content",
+			"disabled",
+			"register",
+			"toc",
+			"decode",
+			"command",
+			"EXECUTIVE",
+			"transpa",
+			"bcry",
+			"solve_lin_eqs",
+			"cnt",
+			"canvas",
+			"qrcode",
+			"t",
+			"api",
+			"urlpar",
+			"start",
+			"img",
+			"respons",
+			"responsiv",
+			"ima",
+			"col-",
+			"stat",
+			"but"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"compound_right",
+			"compound_left",
+			"parse_compound("
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 33.8645418327
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 108.581672668
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Equilibrium.sublime-project",
+	"replace":
+	{
+		"height": 83.6653386454
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 151.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
