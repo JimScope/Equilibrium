@@ -1,0 +1,253 @@
+:root {
+  --transition-1: all 0.3s ease-in-out;
+  --transition-2: all 0.1s ease-in-out;
+}
+
+html {
+  font-size: 1rem;
+  font-family: "PT Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: rgba(255, 122, 122, 1);
+  transition: var(--transition-1);
+}
+
+h1 > a {
+  text-decoration: none;
+  color: rgba(255, 122, 122, 1);
+}
+
+h1 > a::selection {
+  color: rgb(255, 122, 122);
+}
+
+h4 {
+  margin-bottom: 5px;
+  color: #ffc6c6;
+}
+
+h4::selection {
+  color: #ffc6c6;
+}
+
+li {
+  text-decoration: none;
+}
+
+form {
+  text-align: center;
+}
+
+.container {
+  width: 100vw;
+  background-color: darkslategray;
+}
+
+.header {
+  position: relative;
+  margin-top: 20vh; 
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.github-corner {
+  transition: var(--transition-1);
+}
+
+.logo {
+  max-width: 5em;
+}
+
+.equation {
+  position: relative;
+  padding: 0 2rem 0 3.5rem;
+  height: 2.1rem;
+  width: 6rem;
+  font-size: 1.2rem;
+  text-align: center;
+  outline: none;
+  border-radius: 50rem;
+  border: 0.05rem solid rgb(255, 122, 122);
+  caret-color: rgb(255, 122, 122);
+  color: rgba(255, 255, 255, 0);
+  background-image: url(./img/magnifier.svg);
+  background-repeat: no-repeat;
+  background-size: 1.2rem;
+  background-origin: border-box;
+  background-position: center;
+  transition: all 0.4s ease;
+  -webkit-transition: all -webkit-transform 0.4s ease;
+  text-overflow: ellipsis;
+}
+
+.equation::placeholder {
+  color: rgba(255, 122, 122, 0);
+  transition: all 0.3s ease;
+}
+
+.equation:hover::placeholder {
+  color: rgba(255, 122, 122, 0.3);
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+.equation:focus::placeholder {
+  padding: 0.1rem 0.6rem;
+  font-size: 1rem;
+  color: rgba(255, 122, 122, 0.3);
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+.equation::selection {
+  color: transparent;
+}
+
+.equation:focus::selection {
+  color: #fff;
+  background-color: rgba(255, 122, 122, 1);
+}
+
+.equation:hover {
+  padding: 0 2rem 0 3.5rem;
+  color: rgba(255, 122, 122, 1);
+  height: 3rem;
+  width: 16.5rem;
+  background-image: url(./img/magnifier.svg);
+  background-size: 1.7rem;
+  background-position: left 1.05rem top 0.7rem;
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+.equation:focus {
+  padding: 0 2rem 0 3.5rem;
+  color: rgba(255, 122, 122, 1);
+  height: 3rem;
+  width: 16.5rem;
+  border: 0.05rem solid rgb(255, 122, 122);
+  background-image: url(./img/magnifier.svg);
+  background-size: 1.5rem;
+  background-position: left 1.05rem top 0.8rem;
+  box-shadow: rgba(255, 122, 122, 0.1) 0px 0px 20px 5px;
+}
+
+.selection {
+  margin-top: 15vh;
+  text-align: center;
+  color: #ff7a7a;
+  transition: var(--transition-1);
+}
+
+.selection:hover {
+  text-shadow: 0px 4px 7px black;
+  color: #64ceaa;
+}
+
+@media only screen and (max-width: 600px) {
+  .equation {
+    width: 5rem;
+  }
+
+  .equation:focus {
+    width: 11rem;
+    background-size: 1.6rem;
+    background-position: left 1.1rem top 0.75rem;
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .equation {
+    border-width: 1px;
+  }
+
+  .equation:hover {
+    border-width: 1px;
+  }
+
+  .equation:focus {
+    border-width: 1px;
+  }
+}
+
+.footer {
+  display: flex;
+  width: 100vw;
+  position: absolute;
+  bottom: 2rem;
+  color: rgb(147, 147, 147);
+  justify-content: center;
+  transition: var(--transition-1);
+}
+
+.footer > div > a {
+  text-decoration: none;
+  color: rgb(147, 147, 147);
+}
+
+.footer > div > a::selection {
+  color: rgba(255, 122, 122, 1);
+}
+
+.copyrights {
+  font-size: 0.8rem;
+}
+
+.copyrights::selection {
+  color: rgb(147, 147, 147);
+}
+
+.copyrights > a::selection {
+  color: rgb(147, 147, 147);
+}
+
+@-moz-document url-prefix() {
+  .equation {
+    border-width: 1px;
+    background-size: 1.2rem;
+    background-origin: border-box;
+    background-position: center;
+  }
+
+  .equation:hover {
+    border-width: 1px;
+  }
+
+  .equation:focus {
+    border-width: 1px;
+    background-position: left 1.1rem top 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .selection {
+    margin-top: 15vh;
+  }
+
+  .footer {
+    bottom: 1.5rem;
+    transition: var(--transition-1);
+  }
+}
+
+@media only screen and (max-height: 500px) {
+  .footer {
+    display: none;
+  }
+}
+
+.eqn {
+    font-family: serif;
+}
+
+.coeff {
+    color: #176DFF;
+}
