@@ -143,13 +143,12 @@ form {
 .selection {
   margin-top: 15vh;
   text-align: center;
-  color: #ff7a7a;
+  color: #64ceaa;
   transition: var(--transition-1);
 }
 
 .selection:hover {
   text-shadow: 0px 4px 7px black;
-  color: #64ceaa;
 }
 
 @media only screen and (max-width: 600px) {

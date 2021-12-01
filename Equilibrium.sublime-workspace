@@ -379,7 +379,7 @@
 	],
 	"find":
 	{
-		"height": 45.8167330677
+		"height": 24.0
 	},
 	"find_in_files":
 	{
@@ -455,8 +455,10 @@
 			"parse_compound("
 		],
 		"reverse": false,
+		"scrollbar_highlights": true,
 		"show_context": true,
 		"use_buffer2": true,
+		"use_gitignore": true,
 		"whole_word": false,
 		"wrap": true
 	},
@@ -470,7 +472,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 33.8645418327
+		"height": 24.0
 	},
 	"input":
 	{
@@ -499,6 +501,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.diagnostics":
+	{
+		"height": 0.0
+	},
 	"output.exec":
 	{
 		"height": 108.581672668
@@ -511,7 +517,7 @@
 	"project": "Equilibrium.sublime-project",
 	"replace":
 	{
-		"height": 83.6653386454
+		"height": 44.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -546,7 +552,7 @@
 	{
 	},
 	"show_minimap": true,
-	"show_open_files": false,
+	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 151.0,
