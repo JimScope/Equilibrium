@@ -3,7 +3,7 @@ $(function(){
     var equation = $('.equation')
     var steps = $('.steps')
     //connect to the socket server.
-    const socket = io.connect('https://' + document.location.host + '/');
+    const socket = io.connect();
 
     //send details from server
     $('form').submit(function(e){
