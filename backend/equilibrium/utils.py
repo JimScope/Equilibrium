@@ -22,13 +22,37 @@ from sympy import Matrix, lcm, symbols, Rational
 def parse_equation(equation: str):
     """
     Divide la ecuación en reactivos y productos.
+    Extrae el estado de agregación (g), (l), (s), (aq) si existe.
+    Retorna: (left_compounds, right_compounds, left_states, right_states)
     """
     if '=' not in equation:
         raise ValueError("La ecuación debe contener un signo '='.")
     left, right = equation.replace(" ", "").split('=')
-    left_compounds = left.split('+')
-    right_compounds = right.split('+')
-    return left_compounds, right_compounds
+    left_compounds_raw = left.split('+')
+    right_compounds_raw = right.split('+')
+    
+    def extract_compound_and_state(compound_str):
+        # Busca estado de agregación: (g), (l), (s), (aq)
+        match = re.match(r'^(.*?)\(([glsaq]+)\)$', compound_str)
+        if match:
+            return match.group(1), f"({match.group(2)})"
+        return compound_str, ""
+    
+    left_compounds = []
+    left_states = []
+    for c in left_compounds_raw:
+        compound, state = extract_compound_and_state(c)
+        left_compounds.append(compound)
+        left_states.append(state)
+    
+    right_compounds = []
+    right_states = []
+    for c in right_compounds_raw:
+        compound, state = extract_compound_and_state(c)
+        right_compounds.append(compound)
+        right_states.append(state)
+    
+    return left_compounds, right_compounds, left_states, right_states
 
 
 def parse_formula(formula: str):
@@ -85,7 +109,7 @@ def build_matrix(equation: str):
     """
     Construye la matriz de coeficientes de la ecuación química.
     """
-    left, right = parse_equation(equation)
+    left, right, _, _ = parse_equation(equation)
     compounds = left + right
     all_elements = set()
 
@@ -136,12 +160,12 @@ def balance_equation(equation: str):
     vec = vec * lcm_den
     vec = [abs(int(v)) for v in vec]
 
-    left, right = parse_equation(equation)
+    left, right, left_states, right_states = parse_equation(equation)
     compounds = left + right
     
-    # Crea diccionarios separados para reactivos y productos
-    left_result = {left[i]: vec[i] for i in range(len(left))}
-    right_result = {right[i]: vec[len(left) + i] for i in range(len(right))}
+    # Crea diccionarios separados para reactivos y productos con sus estados
+    left_result = {left[i]: {"coef": vec[i], "state": left_states[i]} for i in range(len(left))}
+    right_result = {right[i]: {"coef": vec[len(left) + i], "state": right_states[i]} for i in range(len(right))}
     
     return {"left": left_result, "right": right_result}
 
