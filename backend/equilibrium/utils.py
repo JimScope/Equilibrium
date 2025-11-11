@@ -138,7 +138,7 @@ def build_matrix(equation: str):
     return Matrix(A)
 
 
-def balance_equation(equation: str):
+def balance_equation(equation: str, fractional: bool = False):
     """
     Balancea una ecuación química y devuelve un diccionario con los coeficientes enteros.
 
@@ -162,11 +162,33 @@ def balance_equation(equation: str):
 
     left, right, left_states, right_states = parse_equation(equation)
     compounds = left + right
-    
-    # Crea diccionarios separados para reactivos y productos con sus estados
-    left_result = {left[i]: {"coef": vec[i], "state": left_states[i]} for i in range(len(left))}
-    right_result = {right[i]: {"coef": vec[len(left) + i], "state": right_states[i]} for i in range(len(right))}
-    
+
+    # Si se solicita formato fraccional, normalizamos dividiendo por el mínimo
+    # coeficiente entero para obtener fracciones como 5/2, etc.
+    if fractional:
+        min_val = min([v for v in vec if v > 0])
+        # Construye coeficientes como Rational y luego como string si es fracción
+        left_result = {}
+        right_result = {}
+        for i in range(len(left)):
+            r = Rational(vec[i], min_val)
+            if r.q != 1:
+                coef = {"num": int(r.p), "den": int(r.q)}
+            else:
+                coef = int(r.p)
+            left_result[left[i]] = {"coef": coef, "state": left_states[i]}
+        for i in range(len(right)):
+            r = Rational(vec[len(left) + i], min_val)
+            if r.q != 1:
+                coef = {"num": int(r.p), "den": int(r.q)}
+            else:
+                coef = int(r.p)
+            right_result[right[i]] = {"coef": coef, "state": right_states[i]}
+    else:
+        # Enteros (comportamiento previo)
+        left_result = {left[i]: {"coef": vec[i], "state": left_states[i]} for i in range(len(left))}
+        right_result = {right[i]: {"coef": vec[len(left) + i], "state": right_states[i]} for i in range(len(right))}
+
     return {"left": left_result, "right": right_result}
 
 

@@ -13,7 +13,8 @@ def balance_endpoint():
             return jsonify({"error": "Debe incluir la clave 'equation'."}), 400
 
         eq = data["equation"]
-        result = balance_equation(eq)
+        fractional = bool(data.get("fractional", False))
+        result = balance_equation(eq, fractional=fractional)
         return jsonify({"balanced": result}), 200
 
     except ValueError as e:
