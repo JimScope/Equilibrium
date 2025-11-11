@@ -20,25 +20,25 @@ export default function EquationInput({
   const formattedTeX = formatEquationForTeX(value || "");
 
   return (
-    <div className="space-y-4">
+    <div className="app-input-group">
       <Input
-        placeholder="Ej: C3H8 + O2 = CO2 + H2O"
+        placeholder="Ej: H2 + O2 = H2O"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
 
-      <div className="border rounded-lg p-4 bg-muted/20">
+      <div className="muted-block">
         <MathJax dynamic>
-          {formattedTeX}
+          <div className="result-latex">{formattedTeX}</div>
         </MathJax>
       </div>
 
       <Button
-        className="w-full"
+        style={{ width: '100%' }}
         onClick={onSubmit}
         disabled={loading || value.trim() === ""}
       >
-        {loading ? "Balancing..." : "Balancear"}
+        {loading ? "Balanceando..." : "Balancear"}
       </Button>
     </div>
   );
