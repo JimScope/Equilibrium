@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "equilibrium"
+version = "1.0.0"
+description = "Balanceador de ecuaciones químicas con API REST"
+authors = [{ name = "Jimmy Angel Pérez Díaz" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "sympy>=1.12",
+    "flask>=3.0",
+    "flask-cors>=4.0"
+]
