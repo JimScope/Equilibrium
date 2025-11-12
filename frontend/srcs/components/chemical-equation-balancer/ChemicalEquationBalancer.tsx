@@ -23,7 +23,7 @@ const formatEquation = (result: any) => {
 
   const left = formatSide(result.left);
   const right = formatSide(result.right);
-  return `${left} = ${right}`;
+  return `${left} → ${right}`;
 };
 
 
@@ -31,8 +31,13 @@ const ChemicalEquationBalancer: React.FC = () => {
   const [equation, setEquation] = useState('');
   const [formattedEquation, setFormattedEquation] = useState<string | null>(null);
   const [balancedResult, setBalancedResult] = useState<any | null>(null);
-  const [error, setError] = = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [showFractional, setShowFractional] = useState(false);
+
+  const handleEquationChange = (newEquation: string) => {
+    setEquation(newEquation);
+    setFormattedEquation(newEquation.replace(/->|=/g, '→'));
+  };
 
   const handleBalance = async () => {
     try {
@@ -48,17 +53,14 @@ const ChemicalEquationBalancer: React.FC = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setFormattedEquation(equation.replace('->', '='));
         setBalancedResult(formatEquation(data.balanced));
         setError(null);
       } else {
         setError(data.error || 'An error occurred');
-        setFormattedEquation(null);
         setBalancedResult(null);
       }
     } catch (err) {
       setError('An error occurred while connecting to the server.');
-      setFormattedEquation(null);
       setBalancedResult(null);
     }
   };
@@ -71,7 +73,7 @@ const ChemicalEquationBalancer: React.FC = () => {
       </div>
       <EquationInputForm
         equation={equation}
-        setEquation={setEquation}
+        onEquationChange={handleEquationChange}
         handleBalance={handleBalance}
       />
       {error && <p className="text-red-500 text-center">{error}</p>}
