@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import EquationInputForm from './EquationInputForm';
 import FormattedInputDisplay from './FormattedInputDisplay';
 import BalancedResultDisplay from './BalancedResultDisplay';
+import { formatSubscripts } from './utils';
 
 const formatEquation = (result: any) => {
   if (!result) return '';
@@ -16,7 +17,7 @@ const formatEquation = (result: any) => {
         } else if (coef && typeof coef === 'object' && 'num' in coef && 'den' in coef) {
           coefStr = coef.den === 1 ? (coef.num > 1 ? String(coef.num) : '') : `\\frac{${coef.num}}{${coef.den}}`;
         }
-        return `${coefStr}${compound}${data.state || ''}`;
+        return `${coefStr}${formatSubscripts(compound)}${data.state || ''}`;
       })
       .join(' + ');
   };
@@ -36,7 +37,8 @@ const ChemicalEquationBalancer: React.FC = () => {
 
   const handleEquationChange = (newEquation: string) => {
     setEquation(newEquation);
-    setFormattedEquation(newEquation.replace(/->|=/g, '→'));
+    const formatted = newEquation.replace(/->|=/g, '→');
+    setFormattedEquation(formatSubscripts(formatted));
   };
 
   const handleBalance = async () => {
