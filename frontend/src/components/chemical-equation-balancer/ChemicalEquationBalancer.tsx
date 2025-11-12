@@ -37,7 +37,7 @@ const ChemicalEquationBalancer: React.FC = () => {
   const handleBalance = async () => {
     try {
       const formattedForApi = equation.replace('->', '=');
-      const response = await fetch('http://localhost:5000/balance', {
+      const response = await fetch(import.meta.env.VITE_API_URL + '/balance', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
