@@ -2,9 +2,29 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import { MathJaxContext } from 'better-react-mathjax'
 
-createRoot(document.getElementById('root')).render(
+const config = {
+  "fast-preview": {
+    disabled: true
+  },
+  tex2jax: {
+    inlineMath: [
+      ["$", "$"],
+      ["\\(", "\\)"]
+    ],
+    displayMath: [
+      ["$$", "$$"],
+      ["\\[", "\\]"]
+    ]
+  },
+  messageStyle: "none"
+};
+
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <MathJaxContext version={3} config={config}>
+      <App />
+    </MathJaxContext>
   </StrictMode>,
 )
