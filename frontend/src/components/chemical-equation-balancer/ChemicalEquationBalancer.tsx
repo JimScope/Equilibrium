@@ -82,8 +82,10 @@ const ChemicalEquationBalancer: React.FC = () => {
   return (
     <div className="layout-content-container flex flex-col w-full max-w-3xl flex-1 gap-8">
       <div>
-        <p className="text-4xl font-black leading-tight tracking-[-0.033em] mb-2 text-[#0d121b] dark:text-white">Balance Your Equations</p>
-        <p className="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">Enter an unbalanced chemical equation below to see the balanced result, formatted beautifully.</p>
+        <div>
+          <p className="text-4xl font-black leading-tight tracking-[-0.033em] mb-2 text-[#0d121b] dark:text-white">Balance Your Equations</p>
+          <p className="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">Enter an unbalanced chemical equation below to see the balanced result, formatted beautifully.</p>
+        </div>
       </div>
       <EquationInputForm
         equation={equation}
