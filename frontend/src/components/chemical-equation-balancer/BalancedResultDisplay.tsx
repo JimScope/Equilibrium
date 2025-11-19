@@ -18,22 +18,20 @@ const BalancedResultDisplay: React.FC<BalancedResultDisplayProps> = ({ balancedR
           </label>
           <button
             aria-checked={showFractional}
-            className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark ${
-              showFractional ? 'bg-primary' : 'bg-gray-200 dark:bg-gray-700'
-            }`}
+            className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark ${showFractional ? 'bg-primary' : 'bg-gray-200 dark:bg-gray-700'
+              }`}
             id="fractional-toggle"
             role="switch"
             onClick={() => setShowFractional(!showFractional)}
           >
             <span
-              className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white dark:bg-gray-400 shadow ring-0 transition duration-200 ease-in-out ${
-                showFractional ? 'translate-x-5' : 'translate-x-0'
-              }`}
+              className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white dark:bg-gray-400 shadow ring-0 transition duration-200 ease-in-out ${showFractional ? 'translate-x-5' : 'translate-x-0'
+                }`}
             ></span>
           </button>
         </div>
       </div>
-      <div className="flex items-center justify-center h-24 bg-gray-50 dark:bg-gray-800/60 rounded-lg text-gray-400 dark:text-gray-500 italic">
+      <div className="flex items-center justify-center h-24 bg-gray-50 dark:bg-gray-800/60 rounded-lg text-gray-600 dark:text-gray-400 italic">
         {balancedResult ? (
           <MathJax>{`\\(${balancedResult}\\)`}</MathJax>
         ) : (
