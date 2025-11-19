@@ -23,7 +23,7 @@ const config = {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <MathJaxContext version={3} config={config}>
+    <MathJaxContext version={3} config={config} src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js">
       <App />
     </MathJaxContext>
   </StrictMode>,
