@@ -1,5 +1,7 @@
-import ChemicalEquationBalancer from './components/chemical-equation-balancer/ChemicalEquationBalancer';
-import AdSidebar from './components/AdSidebar';
+import { Suspense, lazy } from 'react';
+
+const ChemicalEquationBalancer = lazy(() => import('./components/chemical-equation-balancer/ChemicalEquationBalancer'));
+const AdSidebar = lazy(() => import('./components/AdSidebar'));
 
 function App() {
   return (
@@ -36,10 +38,14 @@ function App() {
         </header>
         <main className="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row w-full max-w-7xl gap-6">
-            <AdSidebar />
+            <Suspense fallback={<div className="p-4">Loading sidebar...</div>}>
+              <AdSidebar />
+            </Suspense>
             <div className="flex-1 flex">
               <div className="w-full max-w-5xl">
-                <ChemicalEquationBalancer />
+                <Suspense fallback={<div className="flex items-center justify-center h-64"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div></div>}>
+                  <ChemicalEquationBalancer />
+                </Suspense>
               </div>
             </div>
           </div>
