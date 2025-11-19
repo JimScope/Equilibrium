@@ -2,8 +2,12 @@ import { Suspense, lazy } from 'react';
 
 const ChemicalEquationBalancer = lazy(() => import('./components/chemical-equation-balancer/ChemicalEquationBalancer'));
 const AdSidebar = lazy(() => import('./components/AdSidebar'));
+import { HelpModal } from './components/help/HelpModal.js';
+import { useState } from 'react';
 
 function App() {
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
+
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
       <div className="layout-container flex h-full grow flex-col">
@@ -30,7 +34,10 @@ function App() {
           </div>
           <div className="flex flex-1 justify-end">
             <div className="flex items-center">
-              <a className="text-[#0d121b] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal" href="#">
+              <a
+                className="text-[#0d121b] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal cursor-pointer"
+                onClick={() => setIsHelpOpen(true)}
+              >
                 Help
               </a>
             </div>
@@ -50,6 +57,7 @@ function App() {
             </div>
           </div>
         </main>
+        <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} />
       </div>
     </div>
   );
