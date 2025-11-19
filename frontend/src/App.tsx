@@ -1,4 +1,5 @@
 import ChemicalEquationBalancer from './components/chemical-equation-balancer/ChemicalEquationBalancer';
+import AdSidebar from './components/AdSidebar';
 
 function App() {
   return (
@@ -8,18 +9,18 @@ function App() {
           <div className="flex items-center gap-4 text-[#0d121b] dark:text-white">
             <div className="size-6">
               <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_6_330)">
+                <g clipPath="url(#clip0_6_330)">
                   <path
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                     d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"
                     fill="currentColor"
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                   ></path>
                 </g>
                 <defs>
-                  <clippath id="clip0_6_330">
+                  <clipPath id="clip0_6_330">
                     <rect fill="white" height="48" width="48"></rect>
-                  </clippath>
+                  </clipPath>
                 </defs>
               </svg>
             </div>
@@ -34,7 +35,14 @@ function App() {
           </div>
         </header>
         <main className="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8">
-          <ChemicalEquationBalancer />
+          <div className="flex flex-col lg:flex-row w-full max-w-7xl gap-6">
+            <AdSidebar />
+            <div className="flex-1 flex">
+              <div className="w-full max-w-5xl">
+                <ChemicalEquationBalancer />
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
