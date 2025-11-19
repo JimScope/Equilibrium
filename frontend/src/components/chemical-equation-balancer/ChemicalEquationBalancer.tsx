@@ -3,6 +3,10 @@ import EquationInputForm from './EquationInputForm';
 import FormattedInputDisplay from './FormattedInputDisplay';
 import BalancedResultDisplay from './BalancedResultDisplay';
 
+const formatChemicalFormula = (formula: string) => {
+  return formula.replace(/([a-zA-Z)])(\d+)/g, '$1_{$2}');
+};
+
 const formatEquation = (result: any) => {
   if (!result) return '';
 
@@ -16,7 +20,7 @@ const formatEquation = (result: any) => {
         } else if (coef && typeof coef === 'object' && 'num' in coef && 'den' in coef) {
           coefStr = coef.den === 1 ? (coef.num > 1 ? String(coef.num) : '') : `\\frac{${coef.num}}{${coef.den}}`;
         }
-        return `${coefStr}${compound}${data.state || ''}`;
+        return `${coefStr}${formatChemicalFormula(compound)}${data.state || ''}`;
       })
       .join(' + ');
   };
@@ -34,6 +38,20 @@ const ChemicalEquationBalancer: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [showFractional, setShowFractional] = useState(false);
 
+  React.useEffect(() => {
+    if (equation) {
+      // Format the input equation:
+      // 1. Replace -> with \rightarrow for better arrow
+      // 2. Apply subscript formatting
+      const formatted = equation
+        .replace(/\s*->\s*/g, ' \\rightarrow ')
+        .replace(/([a-zA-Z)])(\d+)/g, '$1_{$2}');
+      setFormattedEquation(formatted);
+    } else {
+      setFormattedEquation(null);
+    }
+  }, [equation]);
+
   const handleBalance = async () => {
     try {
       const formattedForApi = equation.replace('->', '=');
@@ -48,17 +66,15 @@ const ChemicalEquationBalancer: React.FC = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setFormattedEquation(equation.replace('->', '='));
+        // setFormattedEquation is handled by useEffect now
         setBalancedResult(formatEquation(data.balanced));
         setError(null);
       } else {
         setError(data.error || 'An error occurred');
-        setFormattedEquation(null);
         setBalancedResult(null);
       }
     } catch (err) {
       setError('An error occurred while connecting to the server.');
-      setFormattedEquation(null);
       setBalancedResult(null);
     }
   };
