@@ -168,30 +168,32 @@ def balance_equation(equation: str, fractional: bool = False, return_steps: bool
     if not sol:
         raise ValueError("No se encontró solución para esta ecuación.")
 
-    vec = sol[0]
-    lcm_den = lcm([term.q for term in vec])  # racionales → denominadores
-    vec = vec * lcm_den
-    vec = [abs(int(v)) for v in vec]
 
+
+    vec = sol[0]
     left, right, left_states, right_states = parse_equation(equation)
     compounds = left + right
 
-    # Si se solicita formato fraccional, normalizamos dividiendo por el mínimo
-    # coeficiente entero para obtener fracciones como 5/2, etc.
+    # Calculate integer coefficients for steps display (always needed for step 5)
+    lcm_den = lcm([term.q for term in vec])
+    vec_int = vec * lcm_den
+    vec_int = [abs(int(v)) for v in vec_int]
+
+    # Si se solicita formato fraccional, usamos directamente los coeficientes
+    # del nullspace sin normalizar para preservar fracciones como 1/2
     if fractional:
-        min_val = min([v for v in vec if v > 0])
-        # Construye coeficientes como Rational y luego como string si es fracción
+        # Use the rational numbers directly from the nullspace solution
         left_result = {}
         right_result = {}
         for i in range(len(left)):
-            r = Rational(vec[i], min_val)
+            r = Rational(vec[i]).limit_denominator()
             if r.q != 1:
                 coef = {"num": int(r.p), "den": int(r.q)}
             else:
                 coef = int(r.p)
             left_result[left[i]] = {"coef": coef, "state": left_states[i]}
         for i in range(len(right)):
-            r = Rational(vec[len(left) + i], min_val)
+            r = Rational(vec[len(left) + i]).limit_denominator()
             if r.q != 1:
                 coef = {"num": int(r.p), "den": int(r.q)}
             else:
@@ -199,8 +201,10 @@ def balance_equation(equation: str, fractional: bool = False, return_steps: bool
             right_result[right[i]] = {"coef": coef, "state": right_states[i]}
     else:
         # Enteros (comportamiento previo)
-        left_result = {left[i]: {"coef": vec[i], "state": left_states[i]} for i in range(len(left))}
-        right_result = {right[i]: {"coef": vec[len(left) + i], "state": right_states[i]} for i in range(len(right))}
+        # Use the already calculated integer coefficients
+        left_result = {left[i]: {"coef": vec_int[i], "state": left_states[i]} for i in range(len(left))}
+        right_result = {right[i]: {"coef": vec_int[len(left) + i], "state": right_states[i]} for i in range(len(right))}
+
 
     result = {"left": left_result, "right": right_result}
 
@@ -257,13 +261,14 @@ def balance_equation(equation: str, fractional: bool = False, return_steps: bool
             "content": f"Solución base del espacio nulo:\n{str([str(v) for v in sol[0]])}"
         })
 
-        # Step 5: Integer coefficients
+        # Step 5: Integer coefficients (always show this for context)
         steps.append({
             "title": "Paso 5: Coeficientes enteros",
-            "content": f"Multiplicamos por el MCM ({lcm_den}) para eliminar fracciones:\nCoeficientes finales: {vec}"
+            "content": f"Multiplicamos por el MCM ({lcm_den}) para eliminar fracciones:\nCoeficientes finales: {vec_int}"
         })
         
         result["steps"] = steps
+
 
     return result
 

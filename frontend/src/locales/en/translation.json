@@ -1,0 +1,29 @@
+{
+  "app": {
+    "title": "Chemical Equation Balancer",
+    "donate": "Donate",
+    "help": "Help",
+    "system_operational": "System Operational",
+    "backend_hibernating": "Backend Hibernating",
+    "backend_ready": "The balancing engine is ready to process your equations.",
+    "backend_sleeping": "The free instance spins down due to inactivity. Your first request may take up to 30 seconds to wake it up."
+  },
+  "balancer": {
+    "title": "Balance Your Equations",
+    "subtitle": "Enter an unbalanced chemical equation below to see the balanced result, formatted beautifully.",
+    "error_generic": "An error occurred",
+    "error_server": "An error occurred while connecting to the server.",
+    "input_label": "Enter Chemical Reaction",
+    "input_placeholder": "e.g., H2 + O2 -> H2O",
+    "button_balance": "Balance",
+    "formatted_input_title": "Formatted Input",
+    "formatted_input_placeholder": "Your formatted equation will appear here",
+    "balanced_result_title": "Balanced Result",
+    "balanced_result_placeholder": "The balanced result will appear here",
+    "fractional_toggle_label": "Show Fractional Coefficients",
+    "copy_success_equation": "Equation copied to clipboard!",
+    "copy_success_result": "Balanced equation copied to clipboard!",
+    "copy_title_equation": "Copy Equation",
+    "copy_title_result": "Copy Result"
+  }
+}

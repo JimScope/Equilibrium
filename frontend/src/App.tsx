@@ -1,12 +1,17 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Heart, HelpCircle } from 'lucide-react';
 
 const ChemicalEquationBalancer = lazy(() => import('./components/chemical-equation-balancer/ChemicalEquationBalancer.js'));
 import { HelpModal } from './components/help/HelpModal.js';
 import { DonateModal } from './components/donate/DonateModal.js';
 import { Toaster } from './components/ui/sonner.js';
+import LanguageSelector from './components/LanguageSelector.js';
+
 
 
 function App() {
+  const { t } = useTranslation();
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [isDonateOpen, setIsDonateOpen] = useState(false);
   const [isBackendActive, setIsBackendActive] = useState(false);
@@ -23,14 +28,22 @@ function App() {
         setIsBackendActive(false);
       }
     };
+
+    // Check immediately
     checkHealth();
+
+    // Then check every 30 seconds
+    const interval = setInterval(checkHealth, 30000);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
       <div className="layout-container flex h-full grow flex-col">
-        <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 px-6 md:px-10 py-4">
-          <div className="flex items-center gap-4 text-[#0d121b] dark:text-white">
+        <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 px-3 md:px-10 py-3 md:py-4">
+          <div className="flex items-center gap-2 md:gap-4 text-[#0d121b] dark:text-white">
             <div className="size-6">
               <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_6_330)">
@@ -48,22 +61,29 @@ function App() {
                 </defs>
               </svg>
             </div>
-            <h2 className="text-lg font-bold leading-tight tracking-[-0.015em]">Chemical Equation Balancer</h2>
+            <h2 className="hidden sm:block text-base md:text-lg font-bold leading-tight tracking-[-0.015em]">
+              {t('app.title')}
+            </h2>
           </div>
           <div className="flex flex-1 justify-end">
-            <div className="flex items-center gap-4">
-              <a
-                className="text-[#0d121b] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal cursor-pointer"
+            <div className="flex items-center gap-3 md:gap-4">
+              <LanguageSelector />
+              <button
+                className="flex items-center gap-2 text-[#0d121b] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal cursor-pointer transition-colors"
                 onClick={() => setIsDonateOpen(true)}
+                aria-label={t('app.donate')}
               >
-                Donate
-              </a>
-              <a
-                className="text-[#0d121b] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal cursor-pointer"
+                <Heart className="w-4 h-4" />
+                <span className="hidden md:inline">{t('app.donate')}</span>
+              </button>
+              <button
+                className="flex items-center gap-2 text-[#0d121b] dark:text-gray-300 dark:hover:text-white text-sm font-medium leading-normal cursor-pointer transition-colors"
                 onClick={() => setIsHelpOpen(true)}
+                aria-label={t('app.help')}
               >
-                Help
-              </a>
+                <HelpCircle className="w-4 h-4" />
+                <span className="hidden md:inline">{t('app.help')}</span>
+              </button>
             </div>
           </div>
         </header>
@@ -71,33 +91,27 @@ function App() {
           <div className="flex flex-col lg:flex-row w-full max-w-7xl gap-6">
             <div className="flex-1 flex justify-center">
               <div className="w-full max-w-5xl flex flex-col items-center">
-                <div className={`w-full max-w-3xl mb-8 p-4 rounded-lg border transition-colors duration-300 ${isBackendActive ? 'bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800' : 'bg-amber-50 border-amber-200 dark:bg-amber-900/20 dark:border-amber-800'}`}>
-                  <div className="flex items-start gap-3">
-                    <div className={`mt-0.5 ${isBackendActive ? 'text-green-600 dark:text-green-400' : 'text-amber-600 dark:text-amber-400'}`}>
-                      {isBackendActive ? (
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      ) : (
+                {!isBackendActive && (
+                  <div className={`w-full max-w-3xl mb-8 p-4 rounded-lg border transition-colors duration-300 bg-amber-50 border-amber-200 dark:bg-amber-900/20 dark:border-amber-800`}>
+                    <div className="flex items-start gap-3">
+                      <div className={`mt-0.5 text-amber-600 dark:text-amber-400`}>
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                         </svg>
-                      )}
-                    </div>
-                    <div>
-                      <h3 className={`text-sm font-medium ${isBackendActive ? 'text-green-800 dark:text-green-200' : 'text-amber-800 dark:text-amber-200'}`}>
-                        {isBackendActive ? 'System Operational' : 'Backend Hibernating'}
-                      </h3>
-                      <p className={`mt-1 text-sm ${isBackendActive ? 'text-green-700 dark:text-green-300' : 'text-amber-700 dark:text-amber-300'}`}>
-                        {isBackendActive
-                          ? 'The balancing engine is ready to process your equations.'
-                          : 'The free instance spins down due to inactivity. Your first request may take up to 30 seconds to wake it up.'}
-                      </p>
+                      </div>
+                      <div>
+                        <h3 className={`text-sm font-medium text-amber-800 dark:text-amber-200`}>
+                          {t('app.backend_hibernating')}
+                        </h3>
+                        <p className={`mt-1 text-sm text-amber-700 dark:text-amber-300`}>
+                          {t('app.backend_sleeping')}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
                 <Suspense fallback={<div className="flex items-center justify-center h-64"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div></div>}>
-                  <ChemicalEquationBalancer />
+                  <ChemicalEquationBalancer onBackendResponse={() => setIsBackendActive(true)} />
                 </Suspense>
               </div>
             </div>
