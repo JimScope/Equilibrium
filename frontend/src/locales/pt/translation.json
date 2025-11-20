@@ -1,0 +1,29 @@
+{
+  "app": {
+    "title": "Balanceador de Equações Químicas",
+    "donate": "Doar",
+    "help": "Ajuda",
+    "system_operational": "Sistema Operacional",
+    "backend_hibernating": "Backend Hibernando",
+    "backend_ready": "O motor de balanceamento está pronto para processar suas equações.",
+    "backend_sleeping": "A instância gratuita é desligada devido à inatividade. Sua primeira solicitação pode levar até 30 segundos para acordá-la."
+  },
+  "balancer": {
+    "title": "Balanceie suas Equações",
+    "subtitle": "Digite uma equação química não balanceada abaixo para ver o resultado balanceado, formatado lindamente.",
+    "error_generic": "Ocorreu um erro",
+    "error_server": "Ocorreu um erro ao conectar com o servidor.",
+    "input_label": "Digite a Reação Química",
+    "input_placeholder": "ex., H2 + O2 -> H2O",
+    "button_balance": "Balancear",
+    "formatted_input_title": "Entrada Formatada",
+    "formatted_input_placeholder": "Sua equação formatada aparecerá aqui",
+    "balanced_result_title": "Resultado Balanceado",
+    "balanced_result_placeholder": "O resultado balanceado aparecerá aqui",
+    "fractional_toggle_label": "Mostrar Coeficientes Fracionários",
+    "copy_success_equation": "Equação copiada para a área de transferência!",
+    "copy_success_result": "Equação balanceada copiada para a área de transferência!",
+    "copy_title_equation": "Copiar Equação",
+    "copy_title_result": "Copiar Resultado"
+  }
+}

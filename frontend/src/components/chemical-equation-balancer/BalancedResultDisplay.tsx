@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MathJax } from 'better-react-mathjax';
 import { Copy } from 'lucide-react';
 import { toast } from 'sonner';
@@ -10,13 +11,15 @@ interface BalancedResultDisplayProps {
 }
 
 const BalancedResultDisplay: React.FC<BalancedResultDisplayProps> = ({ balancedResult, showFractional, setShowFractional }) => {
+  const { t } = useTranslation();
+
   return (
     <div className="bg-white dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-bold text-[#0d121b] dark:text-white">Balanced Result</h3>
+        <h3 className="text-lg font-bold text-[#0d121b] dark:text-white">{t('balancer.balanced_result_title')}</h3>
         <div className="flex items-center gap-3">
           <label className="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer" htmlFor="fractional-toggle">
-            Show Fractional Coefficients
+            {t('balancer.fractional_toggle_label')}
           </label>
           <button
             aria-checked={showFractional}
@@ -42,16 +45,16 @@ const BalancedResultDisplay: React.FC<BalancedResultDisplayProps> = ({ balancedR
             <button
               onClick={() => {
                 navigator.clipboard.writeText(balancedResult);
-                toast.success("Balanced equation copied to clipboard!");
+                toast.success(t('balancer.copy_success_result'));
               }}
               className="absolute top-2 right-2 p-1.5 bg-white dark:bg-gray-800 rounded-md shadow-sm opacity-0 group-hover:opacity-100 transition-opacity border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
-              title="Copy Result"
+              title={t('balancer.copy_title_result')}
             >
               <Copy className="h-4 w-4 text-gray-500 dark:text-gray-400" />
             </button>
           </>
         ) : (
-          'The balanced result will appear here'
+          t('balancer.balanced_result_placeholder')
         )}
       </div>
     </div>

@@ -1,0 +1,29 @@
+{
+  "app": {
+    "title": "化学方程式配平器",
+    "donate": "捐赠",
+    "help": "帮助",
+    "system_operational": "系统运行中",
+    "backend_hibernating": "后端休眠中",
+    "backend_ready": "配平引擎已准备好处理您的方程式。",
+    "backend_sleeping": "免费实例因不活动而休眠。您的第一个请求可能需要长达 30 秒才能将其唤醒。"
+  },
+  "balancer": {
+    "title": "平衡您的方程式",
+    "subtitle": "在下方输入未配平的化学方程式，以查看格式优美的配平结果。",
+    "error_generic": "发生错误",
+    "error_server": "连接服务器时发生错误。",
+    "input_label": "输入化学反应",
+    "input_placeholder": "例如：H2 + O2 -> H2O",
+    "button_balance": "配平",
+    "formatted_input_title": "格式化输入",
+    "formatted_input_placeholder": "您格式化的方程式将在此处显示",
+    "balanced_result_title": "配平结果",
+    "balanced_result_placeholder": "配平结果将在此处显示",
+    "fractional_toggle_label": "显示分数系数",
+    "copy_success_equation": "方程式已复制到剪贴板！",
+    "copy_success_result": "配平方程式已复制到剪贴板！",
+    "copy_title_equation": "复制方程式",
+    "copy_title_result": "复制结果"
+  }
+}

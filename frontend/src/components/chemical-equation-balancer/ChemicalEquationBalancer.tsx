@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import EquationInputForm from './EquationInputForm.js';
 import FormattedInputDisplay from './FormattedInputDisplay.js';
 import BalancedResultDisplay from './BalancedResultDisplay.js';
@@ -31,7 +32,8 @@ const formatEquation = (result: any) => {
   return `${left} = ${right}`;
 };
 
-const ChemicalEquationBalancer: React.FC = () => {
+const ChemicalEquationBalancer: React.FC<{ onBackendResponse?: () => void }> = ({ onBackendResponse }) => {
+  const { t } = useTranslation();
   const [equation, setEquation] = useState('');
   const [formattedEquation, setFormattedEquation] = useState<string | null>(null);
   const [balancedResult, setBalancedResult] = useState<any | null>(null);
@@ -46,7 +48,7 @@ const ChemicalEquationBalancer: React.FC = () => {
       // 2. Apply subscript formatting
       const formatted = equation
         .replace(/\s*->\s*/g, ' \\rightarrow ')
-        .replace(/([a-zA-Z)])(\d+)/g, '$1_{$2}');
+        .replace(/([a-zA-Z)])(\\d+)/g, '$1_{$2}');
       setFormattedEquation(formatted);
     } else {
       setFormattedEquation(null);
@@ -71,13 +73,15 @@ const ChemicalEquationBalancer: React.FC = () => {
         setBalancedResult(formatEquation(data.balanced));
         setSteps(data.balanced.steps || []);
         setError(null);
+        // Notify parent that backend is active
+        onBackendResponse?.();
       } else {
-        setError(data.error || 'An error occurred');
+        setError(data.error || t('balancer.error_generic'));
         setBalancedResult(null);
         setSteps([]);
       }
     } catch (err) {
-      setError('An error occurred while connecting to the server.');
+      setError(t('balancer.error_server'));
       setBalancedResult(null);
       setSteps([]);
     }
@@ -87,8 +91,8 @@ const ChemicalEquationBalancer: React.FC = () => {
     <div className="layout-content-container flex flex-col w-full max-w-3xl flex-1 gap-8">
       <div>
         <div>
-          <p className="text-4xl font-black leading-tight tracking-[-0.033em] mb-2 text-[#0d121b] dark:text-white">Balance Your Equations</p>
-          <p className="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">Enter an unbalanced chemical equation below to see the balanced result, formatted beautifully.</p>
+          <p className="text-4xl font-black leading-tight tracking-[-0.033em] mb-2 text-[#0d121b] dark:text-white">{t('balancer.title')}</p>
+          <p className="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">{t('balancer.subtitle')}</p>
         </div>
       </div>
       <EquationInputForm
