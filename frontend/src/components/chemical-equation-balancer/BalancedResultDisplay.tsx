@@ -31,9 +31,11 @@ const BalancedResultDisplay: React.FC<BalancedResultDisplayProps> = ({ balancedR
           </button>
         </div>
       </div>
-      <div className="flex items-center justify-center h-24 bg-gray-50 dark:bg-gray-800/60 rounded-lg text-gray-600 dark:text-gray-400 italic">
+      <div className="flex items-center justify-center h-24 bg-gray-50 dark:bg-gray-800/60 rounded-lg text-gray-600 dark:text-gray-400 italic overflow-x-auto">
         {balancedResult ? (
-          <MathJax>{`\\(${balancedResult}\\)`}</MathJax>
+          <div className="whitespace-nowrap px-4">
+            <MathJax>{`\\(${balancedResult}\\)`}</MathJax>
+          </div>
         ) : (
           'The balanced result will appear here'
         )}

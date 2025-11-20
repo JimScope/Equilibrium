@@ -9,9 +9,11 @@ const FormattedInputDisplay: React.FC<FormattedInputDisplayProps> = ({ formatted
   return (
     <div className="bg-white dark:bg-gray-900/50 p-6 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
       <h3 className="text-lg font-bold text-[#0d121b] dark:text-white mb-4">Formatted Input</h3>
-      <div className="flex items-center justify-center h-24 bg-gray-50 dark:bg-gray-800/60 rounded-lg text-gray-600 dark:text-gray-400 italic">
+      <div className="flex items-center justify-center h-24 bg-gray-50 dark:bg-gray-800/60 rounded-lg text-gray-600 dark:text-gray-400 italic overflow-x-auto">
         {formattedEquation ? (
-          <MathJax>{`\\(${formattedEquation}\\)`}</MathJax>
+          <div className="whitespace-nowrap px-4">
+            <MathJax>{`\\(${formattedEquation}\\)`}</MathJax>
+          </div>
         ) : (
           'Your formatted equation will appear here'
         )}

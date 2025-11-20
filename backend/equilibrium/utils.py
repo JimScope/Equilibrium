@@ -138,7 +138,7 @@ def build_matrix(equation: str):
     return Matrix(A)
 
 
-def balance_equation(equation: str, fractional: bool = False):
+def balance_equation(equation: str, fractional: bool = False, return_steps: bool = False):
     """
     Balancea una ecuación química y devuelve un diccionario con los coeficientes enteros.
 
@@ -147,6 +147,19 @@ def balance_equation(equation: str, fractional: bool = False):
     {'C3H8': 1, 'O2': 5, 'CO2': 3, 'H2O': 4}
     """
     A = build_matrix(equation)
+    A_original = A.copy() # Save for steps
+    
+    # Re-parse to get elements and compositions for steps
+    left, right, left_states, right_states = parse_equation(equation)
+    compounds = left + right
+    all_elements = set()
+    compositions = []
+    for c in compounds:
+        comp_dict = parse_formula(c)
+        compositions.append(comp_dict)
+        all_elements |= comp_dict.keys()
+    all_elements = sorted(all_elements)
+
     A = A.transpose()
     symbols_list = symbols(f"x1:{A.shape[0]+1}")
     M = Matrix(A).T.col_insert(A.T.shape[1], Matrix([0]*A.T.shape[0]))
@@ -189,7 +202,70 @@ def balance_equation(equation: str, fractional: bool = False):
         left_result = {left[i]: {"coef": vec[i], "state": left_states[i]} for i in range(len(left))}
         right_result = {right[i]: {"coef": vec[len(left) + i], "state": right_states[i]} for i in range(len(right))}
 
-    return {"left": left_result, "right": right_result}
+    result = {"left": left_result, "right": right_result}
+
+    if return_steps:
+        steps = []
+        # Step 1: Parsing
+        steps.append({
+            "title": "Paso 1: Identificar reactivos y productos",
+            "content": f"Reactivos: {', '.join(left)}\nProductos: {', '.join(right)}\nElementos: {', '.join(all_elements)}"
+        })
+
+        # Step 2: Equations
+        eq_list = []
+        for i, elem in enumerate(all_elements):
+            terms = []
+            for j, c in enumerate(compounds):
+                coeff = A[i, j] # Original matrix A before transpose
+                if coeff != 0:
+                    var = f"x_{j+1}"
+                    # Reactants are positive in our matrix logic for build_matrix, but products are negative.
+                    # Let's represent it as conservation: Reactants = Products
+                    # Actually build_matrix does: Reactants - Products = 0
+                    # Let's show the conservation equation:
+                    # e.g. Fe: 1*x1 = 2*x3
+                    pass
+            
+            # Re-building the equation string for display
+            lhs_parts = []
+            rhs_parts = []
+            for j, c in enumerate(compounds):
+                count = compositions[j].get(elem, 0)
+                if count > 0:
+                    if j < len(left):
+                        lhs_parts.append(f"{count}*{symbols_list[j]}")
+                    else:
+                        rhs_parts.append(f"{count}*{symbols_list[j]}")
+            eq_str = f"{elem}: {' + '.join(lhs_parts)} = {' + '.join(rhs_parts)}"
+            eq_list.append(eq_str)
+        
+        steps.append({
+            "title": "Paso 2: Plantear ecuaciones de conservación de masa",
+            "content": "Para cada elemento, la cantidad de átomos en los reactivos debe ser igual a la de los productos:\n" + "\n".join(eq_list)
+        })
+
+        # Step 3: Matrix
+        steps.append({
+            "title": "Paso 3: Sistema de ecuaciones lineal (Matriz)",
+            "content": f"Matriz A (filas=elementos, col=compuestos):\n{str(A_original.tolist())}\n\nBuscamos el espacio nulo de A."
+        })
+
+        # Step 4: Solution
+        steps.append({
+            "title": "Paso 4: Resolver el sistema",
+            "content": f"Solución base del espacio nulo:\n{str([str(v) for v in sol[0]])}"
+        })
+
+        # Step 5: Integer coefficients
+        steps.append({
+            "title": "Paso 5: Coeficientes enteros",
+            "content": f"Multiplicamos por el MCM ({lcm_den}) para eliminar fracciones:\nCoeficientes finales: {vec}"
+        })
+        
+        result["steps"] = steps
+
+    return result
 
 
 # =====================

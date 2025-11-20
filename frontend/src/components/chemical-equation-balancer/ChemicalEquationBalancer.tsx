@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import EquationInputForm from './EquationInputForm';
-import FormattedInputDisplay from './FormattedInputDisplay';
-import BalancedResultDisplay from './BalancedResultDisplay';
+import EquationInputForm from './EquationInputForm.js';
+import FormattedInputDisplay from './FormattedInputDisplay.js';
+import BalancedResultDisplay from './BalancedResultDisplay.js';
+import { StepByStep } from '../StepByStep.js';
 
 const formatChemicalFormula = (formula: string) => {
   return formula.replace(/([a-zA-Z)])(\d+)/g, '$1_{$2}');
@@ -30,11 +31,11 @@ const formatEquation = (result: any) => {
   return `${left} = ${right}`;
 };
 
-
 const ChemicalEquationBalancer: React.FC = () => {
   const [equation, setEquation] = useState('');
   const [formattedEquation, setFormattedEquation] = useState<string | null>(null);
   const [balancedResult, setBalancedResult] = useState<any | null>(null);
+  const [steps, setSteps] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [showFractional, setShowFractional] = useState(false);
 
@@ -68,14 +69,17 @@ const ChemicalEquationBalancer: React.FC = () => {
       if (response.ok) {
         // setFormattedEquation is handled by useEffect now
         setBalancedResult(formatEquation(data.balanced));
+        setSteps(data.balanced.steps || []);
         setError(null);
       } else {
         setError(data.error || 'An error occurred');
         setBalancedResult(null);
+        setSteps([]);
       }
     } catch (err) {
       setError('An error occurred while connecting to the server.');
       setBalancedResult(null);
+      setSteps([]);
     }
   };
 
@@ -100,6 +104,7 @@ const ChemicalEquationBalancer: React.FC = () => {
           showFractional={showFractional}
           setShowFractional={setShowFractional}
         />
+        <StepByStep steps={steps} />
       </div>
     </div>
   );
