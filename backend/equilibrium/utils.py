@@ -217,7 +217,7 @@ def balance_equation(equation: str, fractional: bool = False, return_steps: bool
         for i, elem in enumerate(all_elements):
             terms = []
             for j, c in enumerate(compounds):
-                coeff = A[i, j] # Original matrix A before transpose
+                coeff = A_original[i, j] # Use A_original as A was transposed
                 if coeff != 0:
                     var = f"x_{j+1}"
                     # Reactants are positive in our matrix logic for build_matrix, but products are negative.

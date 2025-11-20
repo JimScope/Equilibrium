@@ -1,5 +1,7 @@
 import React from 'react';
 import { MathJax } from 'better-react-mathjax';
+import { Copy } from 'lucide-react';
+import { toast } from 'sonner';
 
 interface BalancedResultDisplayProps {
   balancedResult: any | null;
@@ -31,11 +33,23 @@ const BalancedResultDisplay: React.FC<BalancedResultDisplayProps> = ({ balancedR
           </button>
         </div>
       </div>
-      <div className="flex items-center justify-center h-24 bg-gray-50 dark:bg-gray-800/60 rounded-lg text-gray-600 dark:text-gray-400 italic overflow-x-auto">
+      <div className="flex items-center justify-center h-24 bg-gray-50 dark:bg-gray-800/60 rounded-lg text-gray-600 dark:text-gray-400 italic overflow-x-auto relative group">
         {balancedResult ? (
-          <div className="whitespace-nowrap px-4">
-            <MathJax>{`\\(${balancedResult}\\)`}</MathJax>
-          </div>
+          <>
+            <div className="whitespace-nowrap px-4">
+              <MathJax>{`\\(${balancedResult}\\)`}</MathJax>
+            </div>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(balancedResult);
+                toast.success("Balanced equation copied to clipboard!");
+              }}
+              className="absolute top-2 right-2 p-1.5 bg-white dark:bg-gray-800 rounded-md shadow-sm opacity-0 group-hover:opacity-100 transition-opacity border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+              title="Copy Result"
+            >
+              <Copy className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+            </button>
+          </>
         ) : (
           'The balanced result will appear here'
         )}

@@ -5,6 +5,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # Permite acceso desde el frontend
 
+@app.route("/health", methods=["GET"])
+def health_check():
+    return jsonify({"status": "ok"}), 200
+
 @app.route("/balance", methods=["POST"])
 def balance_endpoint():
     try:
