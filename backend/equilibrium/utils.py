@@ -208,29 +208,23 @@ def balance_equation(equation: str, fractional: bool = False, return_steps: bool
 
     result = {"left": left_result, "right": right_result}
 
+
     if return_steps:
         steps = []
         # Step 1: Parsing
         steps.append({
-            "title": "Paso 1: Identificar reactivos y productos",
-            "content": f"Reactivos: {', '.join(left)}\nProductos: {', '.join(right)}\nElementos: {', '.join(all_elements)}"
+            "titleKey": "steps.step1.title",
+            "contentKey": "steps.step1.content",
+            "data": {
+                "reactants": ", ".join(left),
+                "products": ", ".join(right),
+                "elements": ", ".join(all_elements)
+            }
         })
 
         # Step 2: Equations
         eq_list = []
         for i, elem in enumerate(all_elements):
-            terms = []
-            for j, c in enumerate(compounds):
-                coeff = A_original[i, j] # Use A_original as A was transposed
-                if coeff != 0:
-                    var = f"x_{j+1}"
-                    # Reactants are positive in our matrix logic for build_matrix, but products are negative.
-                    # Let's represent it as conservation: Reactants = Products
-                    # Actually build_matrix does: Reactants - Products = 0
-                    # Let's show the conservation equation:
-                    # e.g. Fe: 1*x1 = 2*x3
-                    pass
-            
             # Re-building the equation string for display
             lhs_parts = []
             rhs_parts = []
@@ -245,29 +239,43 @@ def balance_equation(equation: str, fractional: bool = False, return_steps: bool
             eq_list.append(eq_str)
         
         steps.append({
-            "title": "Paso 2: Plantear ecuaciones de conservación de masa",
-            "content": "Para cada elemento, la cantidad de átomos en los reactivos debe ser igual a la de los productos:\n" + "\n".join(eq_list)
+            "titleKey": "steps.step2.title",
+            "contentKey": "steps.step2.content",
+            "data": {
+                "equations": "\n".join(eq_list)
+            }
         })
 
         # Step 3: Matrix
         steps.append({
-            "title": "Paso 3: Sistema de ecuaciones lineal (Matriz)",
-            "content": f"Matriz A (filas=elementos, col=compuestos):\n{str(A_original.tolist())}\n\nBuscamos el espacio nulo de A."
+            "titleKey": "steps.step3.title",
+            "contentKey": "steps.step3.content",
+            "data": {
+                "matrix": str(A_original.tolist())
+            }
         })
 
         # Step 4: Solution
         steps.append({
-            "title": "Paso 4: Resolver el sistema",
-            "content": f"Solución base del espacio nulo:\n{str([str(v) for v in sol[0]])}"
+            "titleKey": "steps.step4.title",
+            "contentKey": "steps.step4.content",
+            "data": {
+                "solution": str([str(v) for v in sol[0]])
+            }
         })
 
         # Step 5: Integer coefficients (always show this for context)
         steps.append({
-            "title": "Paso 5: Coeficientes enteros",
-            "content": f"Multiplicamos por el MCM ({lcm_den}) para eliminar fracciones:\nCoeficientes finales: {vec_int}"
+            "titleKey": "steps.step5.title",
+            "contentKey": "steps.step5.content",
+            "data": {
+                "lcm": str(lcm_den),
+                "coefficients": str(vec_int)
+            }
         })
         
         result["steps"] = steps
+
 
 
     return result

@@ -25,5 +25,28 @@
     "copy_success_result": "¡Ecuación balanceada copiada al portapapeles!",
     "copy_title_equation": "Copiar Ecuación",
     "copy_title_result": "Copiar Resultado"
+  },
+  "steps": {
+    "heading": "Método de Resolución Paso a Paso",
+    "step1": {
+      "title": "Paso 1: Identificar Reactivos y Productos",
+      "content": "Reactivos: {{reactants}}\nProductos: {{products}}\nElementos: {{elements}}"
+    },
+    "step2": {
+      "title": "Paso 2: Plantear Ecuaciones de Conservación de Masa",
+      "content": "Para cada elemento, la cantidad de átomos en los reactivos debe ser igual a la de los productos:\n{{equations}}"
+    },
+    "step3": {
+      "title": "Paso 3: Sistema de Ecuaciones Lineal (Matriz)",
+      "content": "Matriz A (filas=elementos, columnas=compuestos):\n{{matrix}}\n\nBuscamos el espacio nulo de A."
+    },
+    "step4": {
+      "title": "Paso 4: Resolver el Sistema",
+      "content": "Solución base del espacio nulo:\n{{solution}}"
+    },
+    "step5": {
+      "title": "Paso 5: Coeficientes Enteros",
+      "content": "Multiplicamos por el MCM ({{lcm}}) para eliminar fracciones:\nCoeficientes finales: {{coefficients}}"
+    }
   }
 }
