@@ -25,5 +25,28 @@
     "copy_success_result": "Balanced equation copied to clipboard!",
     "copy_title_equation": "Copy Equation",
     "copy_title_result": "Copy Result"
+  },
+  "steps": {
+    "heading": "Step-by-Step Solution Method",
+    "step1": {
+      "title": "Step 1: Identify Reactants and Products",
+      "content": "Reactants: {{reactants}}\nProducts: {{products}}\nElements: {{elements}}"
+    },
+    "step2": {
+      "title": "Step 2: Set Up Mass Conservation Equations",
+      "content": "For each element, the number of atoms in the reactants must equal those in the products:\n{{equations}}"
+    },
+    "step3": {
+      "title": "Step 3: Linear Equation System (Matrix)",
+      "content": "Matrix A (rows=elements, columns=compounds):\n{{matrix}}\n\nWe find the nullspace of A."
+    },
+    "step4": {
+      "title": "Step 4: Solve the System",
+      "content": "Base solution from nullspace:\n{{solution}}"
+    },
+    "step5": {
+      "title": "Step 5: Integer Coefficients",
+      "content": "Multiply by the LCM ({{lcm}}) to eliminate fractions:\nFinal coefficients: {{coefficients}}"
+    }
   }
 }

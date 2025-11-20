@@ -25,5 +25,28 @@
     "copy_success_result": "配平方程式已复制到剪贴板！",
     "copy_title_equation": "复制方程式",
     "copy_title_result": "复制结果"
+  },
+  "steps": {
+    "heading": "分步求解方法",
+    "step1": {
+      "title": "步骤 1：识别反应物和生成物",
+      "content": "反应物：{{reactants}}\n生成物：{{products}}\n元素：{{elements}}"
+    },
+    "step2": {
+      "title": "步骤 2：建立质量守恒方程",
+      "content": "对于每个元素，反应物中的原子数必须等于生成物中的原子数：\n{{equations}}"
+    },
+    "step3": {
+      "title": "步骤 3：线性方程组（矩阵）",
+      "content": "矩阵 A（行=元素，列=化合物）：\n{{matrix}}\n\n我们求 A 的零空间。"
+    },
+    "step4": {
+      "title": "步骤 4：求解系统",
+      "content": "零空间的基础解：\n{{solution}}"
+    },
+    "step5": {
+      "title": "步骤 5：整数系数",
+      "content": "乘以最小公倍数 ({{lcm}}) 以消除分数：\n最终系数：{{coefficients}}"
+    }
   }
 }
