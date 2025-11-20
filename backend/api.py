@@ -14,7 +14,7 @@ def balance_endpoint():
 
         eq = data["equation"]
         fractional = bool(data.get("fractional", False))
-        result = balance_equation(eq, fractional=fractional)
+        result = balance_equation(eq, fractional=fractional, return_steps=True)
         return jsonify({"balanced": result}), 200
 
     except ValueError as e:
