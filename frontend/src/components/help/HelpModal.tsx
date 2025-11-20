@@ -21,7 +21,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
 
                 <div className="space-y-6 mt-4">
                     <section className="space-y-3">
-                        <h3 className="text-lg font-semibold text-green-500">Understanding Chemical Equations</h3>
+                        <h3 className="text-lg font-semibold text-primary">Understanding Chemical Equations</h3>
                         <p className="text-sm leading-relaxed text-muted-foreground">
                             A chemical equation represents a chemical reaction. It shows the reactants (substances that start a reaction)
                             and products (substances formed by the reaction). For example:
@@ -35,7 +35,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
                     </section>
 
                     <section className="space-y-3">
-                        <h3 className="text-lg font-semibold text-green-500">Law of Conservation of Mass</h3>
+                        <h3 className="text-lg font-semibold text-primary">Law of Conservation of Mass</h3>
                         <p className="text-sm leading-relaxed text-muted-foreground">
                             A balanced equation obeys the <strong>Law of Conservation of Mass</strong>, which states that matter is neither
                             created nor destroyed in a chemical reaction. This means we must have the same number of atoms of each element
@@ -44,11 +44,11 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
                     </section>
 
                     <section className="space-y-3">
-                        <h3 className="text-lg font-semibold text-green-500">Methods for Balancing Chemical Equations</h3>
+                        <h3 className="text-lg font-semibold text-primary">Methods for Balancing Chemical Equations</h3>
 
                         <div className="space-y-4">
                             <div>
-                                <h4 className="text-base font-semibold text-green-400">1. Inspection or Trial and Error Method</h4>
+                                <h4 className="text-base font-semibold text-primary/80">1. Inspection or Trial and Error Method</h4>
                                 <p className="text-sm leading-relaxed text-muted-foreground">
                                     This is the most straightforward method. It involves looking at the equation and adjusting the coefficients
                                     to get the same number of each type of atom on both sides.
@@ -57,7 +57,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
                             </div>
 
                             <div>
-                                <h4 className="text-base font-semibold text-green-400">2. Algebraic Method (Gauss-Jordan) ⭐ Used by This Application</h4>
+                                <h4 className="text-base font-semibold text-primary/80">2. Algebraic Method (Gauss-Jordan) ⭐ Used by This Application</h4>
                                 <p className="text-sm leading-relaxed text-muted-foreground">
                                     This method uses algebraic equations to find the correct coefficients. Each molecule's coefficient is
                                     represented by a variable (like x, y, z), and a series of equations are set up based on the number of
@@ -65,7 +65,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
                                 </p>
                                 <p className="text-sm text-muted-foreground"><strong>Best for:</strong> Complex equations that are not easily balanced by inspection.</p>
 
-                                <div className="bg-secondary/50 p-4 rounded-md border-l-4 border-green-500 space-y-3 mt-3">
+                                <div className="bg-secondary/50 p-4 rounded-md border-l-4 border-primary space-y-3 mt-3">
                                     <p className="text-sm font-semibold">Process:</p>
                                     <ol className="list-decimal list-inside space-y-1 text-sm text-muted-foreground">
                                         <li>Assign variables (coefficients) to each molecule</li>
@@ -103,7 +103,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
                             </div>
 
                             <div>
-                                <h4 className="text-base font-semibold text-green-400">3. Oxidation Number Method</h4>
+                                <h4 className="text-base font-semibold text-primary/80">3. Oxidation Number Method</h4>
                                 <p className="text-sm leading-relaxed text-muted-foreground">
                                     Useful for redox reactions, this method involves balancing the equation based on the change in oxidation numbers.
                                 </p>
@@ -115,7 +115,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
                             </div>
 
                             <div>
-                                <h4 className="text-base font-semibold text-green-400">4. Ion-Electron Half-Reaction Method</h4>
+                                <h4 className="text-base font-semibold text-primary/80">4. Ion-Electron Half-Reaction Method</h4>
                                 <p className="text-sm leading-relaxed text-muted-foreground">
                                     This method separates the reaction into two half-reactions – one for oxidation and one for reduction.
                                     Each half-reaction is balanced separately and then combined.
@@ -130,7 +130,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
                     </section>
 
                     <section className="space-y-3">
-                        <h3 className="text-lg font-semibold text-green-500">Why This Application Uses the Algebraic Method</h3>
+                        <h3 className="text-lg font-semibold text-primary">Why This Application Uses the Algebraic Method</h3>
                         <p className="text-sm leading-relaxed text-muted-foreground">
                             The algebraic method (Gauss-Jordan elimination) is implemented in this application because it:
                         </p>
