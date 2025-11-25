@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Heart, HelpCircle } from 'lucide-react';
 
 const ChemicalEquationBalancer = lazy(() => import('./components/chemical-equation-balancer/ChemicalEquationBalancer.js'));
-const HelpModal = lazy(() => import('./components/help/HelpModal.js').then(module => ({ default: module.HelpModal })));
-const DonateModal = lazy(() => import('./components/donate/DonateModal.js').then(module => ({ default: module.DonateModal })));
+import { HelpModal } from './components/help/HelpModal.js';
+import { DonateModal } from './components/donate/DonateModal.js';
 import { Toaster } from './components/ui/sonner.js';
 import LanguageSelector from './components/LanguageSelector.js';
 
@@ -118,14 +118,10 @@ function App() {
           </div>
         </main>
         {isHelpOpen && (
-          <Suspense fallback={null}>
-            <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} />
-          </Suspense>
+          <HelpModal isOpen={isHelpOpen} onClose={() => setIsHelpOpen(false)} />
         )}
         {isDonateOpen && (
-          <Suspense fallback={null}>
-            <DonateModal isOpen={isDonateOpen} onClose={() => setIsDonateOpen(false)} />
-          </Suspense>
+          <DonateModal isOpen={isDonateOpen} onClose={() => setIsDonateOpen(false)} />
         )}
         <Toaster />
       </div>
