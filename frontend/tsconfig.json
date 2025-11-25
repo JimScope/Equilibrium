@@ -9,7 +9,6 @@
     "module": "nodenext",
     "target": "esnext",
     "types": [],
-    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
